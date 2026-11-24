@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#090d18">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<title>CardCheck — Demonstração</title>
+<style>
+:root{color-scheme:dark;--bg:#090d18;--panel:#111827;--panel2:#0d1422;--line:#253249;--muted:#91a0b8;--text:#eef3ff;--blue:#6d8cff;--cyan:#56d7e8;--green:#40d6a0;--red:#ff7185}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 15% 0%,#17264a 0,transparent 42%),var(--bg);color:var(--text);font:15px/1.5 Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif;min-height:100vh}
+.wrap{max-width:1080px;margin:auto;padding:28px 20px 50px}.top{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:30px}
+.brand{display:flex;align-items:center;gap:12px;font-weight:800;font-size:21px;letter-spacing:.2px}.logo{width:42px;height:42px;border-radius:13px;display:grid;place-items:center;background:linear-gradient(135deg,#6d8cff,#56d7e8);color:#07101c;font-size:21px;box-shadow:0 8px 30px #426bdf55}
+.pill{border:1px solid #35516b;background:#102333;color:#8ee8ed;padding:6px 11px;border-radius:999px;font-size:12px;font-weight:700}
+.hero{margin-bottom:24px}.eyebrow{color:var(--cyan);font-size:11px;font-weight:800;letter-spacing:1.8px;text-transform:uppercase}.hero h1{font-size:clamp(27px,4vw,38px);line-height:1.12;margin:8px 0}.hero p{color:var(--muted);max-width:700px;margin:0}
+.layout{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(280px,.9fr);gap:18px;align-items:start}
+.card{background:linear-gradient(180deg,#141e30,#101827);border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:0 18px 55px #0003}
+.card h2{font-size:17px;margin:0 0 5px}.sub{color:var(--muted);font-size:13px;margin:0 0 20px}
+label{display:block;font-size:12px;color:#bdc9dc;font-weight:700;margin:15px 0 7px}
+input{width:100%;background:#0a1220;border:1px solid #2a3952;border-radius:11px;color:var(--text);padding:13px 14px;font:inherit;outline:none;transition:.2s}
+input:focus{border-color:var(--blue);box-shadow:0 0 0 3px #6d8cff22}
+input::placeholder{color:#64748b}.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.hint{font-size:11px;color:#8292aa;margin-top:6px}
+.actions{display:flex;gap:10px;margin-top:19px;flex-wrap:wrap}
+button{border:0;border-radius:11px;padding:12px 16px;font-weight:800;cursor:pointer;font-size:13px}
+.primary{background:linear-gradient(110deg,#6d8cff,#56d7e8);color:#08111f;flex:1}
+.secondary{background:#202d43;color:#dbe6fa;border:1px solid #34445e}
+button:hover{filter:brightness(1.08)}button:focus-visible{outline:2px solid white;outline-offset:3px}
+.notice{margin-top:15px;padding:12px 13px;border:1px solid #594a2a;background:#282113;border-radius:11px;color:#f1d99b;font-size:12px}
+.result{min-height:230px;display:flex;flex-direction:column;justify-content:center}
+.empty{text-align:center;color:var(--muted);padding:20px 8px}.empty .symbol{font-size:34px;margin-bottom:8px}
+.status{display:flex;align-items:center;gap:10px;font-size:18px;font-weight:800;margin:10px 0 5px}
+.dot{width:10px;height:10px;border-radius:50%;background:var(--green);box-shadow:0 0 14px currentColor}
+.status.bad{color:var(--red)}.status.bad .dot{background:var(--red)}
+.status.good{color:var(--green)}.details{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:17px}
+.detail{background:#0b1422;border:1px solid #25344a;border-radius:11px;padding:11px}.detail span{display:block;color:var(--muted);font-size:10px;text-transform:uppercase;letter-spacing:.8px}.detail strong{display:block;font-size:13px;margin-top:3px;overflow-wrap:anywhere}
+.demo{margin-top:18px}.demo h3{font-size:13px;margin:0 0 10px}.samples{display:grid;gap:8px}.sample{display:flex;align-items:center;justify-content:space-between;gap:10px;background:#0b1422;border:1px solid #25344a;border-radius:10px;padding:10px 12px}.sample small{color:var(--muted);display:block}.sample code{font-size:12px;color:#dbe7ff}.sample button{padding:7px 10px;font-size:11px}
+.footer{color:#72819a;font-size:11px;text-align:center;margin-top:24px}.footnote{margin-top:15px;color:#9aa9bf;font-size:12px}
+@media(max-width:760px){.layout{grid-template-columns:1fr}.top{margin-bottom:24px}.card{padding:18px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="brand"><div class="logo">◈</div>CardCheck</div>
+    <div class="pill">● MODO DEMONSTRAÇÃO</div>
+  </header>
+  <section class="hero">
+    <div class="eyebrow">Projeto escolar · ambiente fictício</div>
+    <h1>Validação visual de cartões</h1>
+    <p>Identifique a bandeira e confira o formato de um número de teste. Nenhuma consulta bancária ou autorização de pagamento é realizada.</p>
+  </section>
+
+  <main class="layout">
+    <section class="card">
+      <h2>Verificar cartão de demonstração</h2>
+      <p class="sub">Use somente os números de teste exibidos nesta página.</p>
+      <form id="checkForm" novalidate>
+        <label for="number">Número do cartão de teste</label>
+        <input id="number" inputmode="numeric" autocomplete="off" maxlength="23" placeholder="0000 0000 0000 0000" aria-describedby="numberHint">
+        <div class="hint" id="numberHint">Apenas a numeração é analisada localmente no navegador.</div>
+        <div class="row">
+          <div><label for="expiry">Validade (MM/AA)</label><input id="expiry" inputmode="numeric" autocomplete="off" maxlength="5" placeholder="MM/AA"></div>
+          <div><label for="brand">Bandeira identificada</label><input id="brand" placeholder="Automática" readonly></div>
+        </div>
+        <div class="notice">Por segurança, este projeto não solicita CVC, não recebe dados bancários reais e não envia nem salva informações.</div>
+        <div class="actions">
+          <button class="primary" type="submit">Analisar cartão</button>
+          <button class="secondary" type="reset" id="clear">Limpar</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="card">
+      <h2>Resultado da análise</h2>
+      <p class="sub">Retorno didático — não representa aprovação financeira.</p>
+      <div class="result" id="result" aria-live="polite">
+        <div class="empty"><div class="symbol">▤</div><strong>Aguardando dados de teste</strong><div class="hint">Preencha os campos e clique em “Analisar cartão”.</div></div>
+      </div>
+    </section>
+  </main>
+
+  <section class="card demo">
+    <h3>Números fictícios para testar</h3>
+    <div class="samples">
+      <div class="sample"><div><strong>Visa de teste</strong><small><code>4111 1111 1111 1111</code></small></div><button class="secondary" data-card="4111111111111111">Usar exemplo</button></div>
+      <div class="sample"><div><strong>Mastercard de teste</strong><small><code>5555 5555 5555 4444</code></small></div><button class="secondary" data-card="5555555555554444">Usar exemplo</button></div>
+      <div class="sample"><div><strong>Amex de teste</strong><small><code>3782 822463 10005</code></small></div><button class="secondary" data-card="378282246310005">Usar exemplo</button></div>
+    </div>
+    <p class="footnote">Os exemplos são números de teste amplamente usados em ambientes de demonstração. Não use dados de cartões pessoais.</p>
+  </section>
+  <div class="footer">CardCheck © 2026 · Protótipo educacional offline · Sem conexão com instituições financeiras</div>
+</div>
+<script>
+const numberInput=document.getElementById('number');
+const expiryInput=document.getElementById('expiry');
+const brandInput=document.getElementById('brand');
+const result=document.getElementById('result');
+
+function digits(v){return v.replace(/\D/g,'')}
+function brandOf(n){
+  if(/^4/.test(n)) return 'Visa';
+  if(/^(5[1-5]|2(2[2-9]|[3-6]\d|7[01]|720))/.test(n)) return 'Mastercard';
+  if(/^3[47]/.test(n)) return 'American Express';
+  if(/^(4011|4312|4389)/.test(n)) return 'Elo (prefixo demonstrativo)';
+  return n ? 'Não identificada' : '';
+}
+function luhn(n){
+  let sum=0, dbl=false;
+  for(let i=n.length-1;i>=0;i--){let d=Number(n[i]);if(dbl){d*=2;if(d>9)d-=9}sum+=d;dbl=!dbl}
+  return sum%10===0;
+}
+function validExpiry(v){
+  if(!/^\d{2}\/\d{2}$/.test(v))return false;
+  const [m,y]=v.split('/').map(Number);
+  if(m<1||m>12)return false;
+  const now=new Date(), year=2000+y;
+  return year>now.getFullYear() || (year===now.getFullYear() && m>=now.getMonth()+1);
+}
+numberInput.addEventListener('input',()=>{
+  const n=digits(numberInput.value).slice(0,19);
+  numberInput.value=n.replace(/(.{4})/g,'$1 ').trim();
+  brandInput.value=brandOf(n);
+});
+expiryInput.addEventListener('input',()=>{
+  let v=digits(expiryInput.value).slice(0,4);
+  if(v.length>2)v=v.slice(0,2)+'/'+v.slice(2);
+  expiryInput.value=v;
+});
+document.getElementById('checkForm').addEventListener('submit',e=>{
+  e.preventDefault();
+  const n=digits(numberInput.value), exp=expiryInput.value, brand=brandOf(n);
+  const lengthOK=(brand==='American Express'?n.length===15:n.length===16);
+  const numberOK=lengthOK&&brand!=='Não identificada'&&luhn(n);
+  const expiryOK=validExpiry(exp);
+  const ok=numberOK&&expiryOK;
+  result.innerHTML=`
+    <div class="status ${ok?'good':'bad'}"><span class="dot"></span>${ok?'Formato de teste válido':'Não foi possível validar'}</div>
+    <div class="hint">${ok?'Os dados passaram nas verificações locais de formato.':'Confira o número, a bandeira e a validade informados.'}</div>
+    <div class="details">
+      <div class="detail"><span>Bandeira</span><strong>${brand||'—'}</strong></div>
+      <div class="detail"><span>Número / Luhn</span><strong>${numberOK?'Formato correto':'Não validado'}</strong></div>
+      <div class="detail"><span>Validade</span><strong>${expiryOK?'Formato válido e não expirado':'Inválida ou expirada'}</strong></div>
+      <div class="detail"><span>Consulta bancária</span><strong>Não realizada</strong></div>
+    </div>
+    <p class="footnote">Resultado exclusivamente didático. Não verifica titular, saldo, limite, bloqueio, existência ou autorização do cartão.</p>`;
+});
+document.querySelectorAll('[data-card]').forEach(btn=>btn.addEventListener('click',()=>{
+  numberInput.value=btn.dataset.card.replace(/(.{4})/g,'$1 ').trim();
+  brandInput.value=brandOf(btn.dataset.card);
+  expiryInput.value='12/30';
+}));
+document.getElementById('clear').addEventListener('click',()=>{
+  brandInput.value='';
+  result.innerHTML='<div class="empty"><div class="symbol">▤</div><strong>Aguardando dados de teste</strong><div class="hint">Preencha os campos e clique em “Analisar cartão”.</div></div>';
+});
+</script>
+<script>
+if ("serviceWorker" in navigator && location.protocol.startsWith("http")) {
+  window.addEventListener("load", () => navigator.serviceWorker.register("./sw.js").catch(() => {}));
+}
+</script>
+</body>
+</html>

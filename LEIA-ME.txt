@@ -1,0 +1,31 @@
+CARD​​CHECK — PACOTE PWA (PROTÓTIPO ESCOLAR)
+
+Arquivos:
+- index.html: site CardCheck
+- manifest.webmanifest: configuração para instalação como app
+- sw.js: cache offline básico
+- icons/: ícones do app
+
+IMPORTANTE:
+Este pacote não é uma extensão do Safari. É um site instalável (PWA).
+Para o botão "Adicionar à Tela de Início" funcionar como app, publique estes
+arquivos em um endereço HTTPS. Um arquivo aberto diretamente no iPhone não
+instala como PWA.
+
+Como publicar gratuitamente:
+1. Entre em https://github.com e crie uma conta, se necessário.
+2. Crie um repositório público chamado cardcheck.
+3. Envie todos os arquivos e a pasta icons mantendo a estrutura.
+4. Em Settings > Pages, escolha Deploy from a branch, branch main e folder /(root).
+5. Aguarde o endereço HTTPS gerado pelo GitHub Pages.
+
+Como instalar no iPhone:
+1. Abra o endereço HTTPS no Safari.
+2. Toque em Compartilhar.
+3. Escolha "Adicionar à Tela de Início".
+4. Confirme "Adicionar". O ícone CardCheck aparecerá na tela inicial.
+
+SEGURANÇA:
+O projeto só aceita exemplos de demonstração e verifica formato localmente.
+Não solicita CVC, não consulta bancos, não verifica saldo/limite/titular e não
+deve receber dados de cartões reais.
